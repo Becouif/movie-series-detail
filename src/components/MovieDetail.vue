@@ -7,6 +7,7 @@ export default {
       movieInfo: [],
       isLoading: true,
       inputError: '',
+      emptyResponse: false,
     };
   },
   methods: {
@@ -33,8 +34,8 @@ export default {
               genre: res.Genre,
               awards: res.Awards,
               img: res.Poster,
+              yearOfReleased: res.Released,
             });
-            console.log(this.movieInfo);
           })
           .catch(function () {
             throw new Error('not working');
@@ -52,6 +53,7 @@ export default {
     </div>
     <div class="mb-20">
       <input
+        @keyup.enter="loadMovieDetail"
         class="hover:bg-white font-mono"
         type="text"
         name=""
@@ -65,16 +67,14 @@ export default {
         Submit
       </button>
     </div>
+    <div v-if="emptyResponse">{{ inputError }}</div>
 
     <div v-if="isLoading">
       {{ inputError }}
     </div>
     <div v-else>
-      <li
-        v-for="(detail, info) in movieInfo"
-        :key="info.id"
-        class="bg-fuchsia-800"
-      >
+      <li v-for="detail in movieInfo" :key="detail.id" class="bg-fuchsia-800">
+        <img :src="detail.img" alt="" class="max-w-none" />
         <h3>
           Title: <span> {{ detail.title }}</span>
         </h3>
@@ -98,10 +98,7 @@ export default {
   </section>
 </template>
 
-<style>
-* {
-  background-color: black;
-}
+<style scoped>
 li {
   list-style-type: none;
 }
