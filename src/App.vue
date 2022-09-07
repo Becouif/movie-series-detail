@@ -10,8 +10,11 @@ export default {
   },
   methods: {
     loadMovieDetail() {
+      this.movieInfo = [];
       axios
-        .get('http://www.omdbapi.com/?t=game+of+thrones&apikey=ec7b2d29')
+        .get(
+          `http://www.omdbapi.com/?t=${this.enteredMovieName}&apikey=ec7b2d29`
+        )
         .then((response) => {
           this.isLoading = true;
           const res = response.data;
@@ -56,21 +59,32 @@ export default {
       </button>
     </div>
     <div v-if="isLoading">
-      <li v-for="(detail, info) in movieInfo" :key="info.id">
-        <h3>
-          Title: <span> {{ detail.title }}</span>
-        </h3>
-        <h4>
-          Year Of Movie: <span> {{ detail.year }}</span>
-        </h4>
-        <p>
-          Plot: <span> {{ detail.plot }}</span>
-        </p>
-
-        <span>Actors: {{ detail.actors }}</span>
-        <span>Genre: {{ detail.genre }}</span>
-        <span>Awards: {{ detail.awards }}</span>
-      </li>
+      <base-card class="font-mono"
+        ><li
+          v-for="(detail, info) in movieInfo"
+          :key="info.id"
+          class="bg-fuchsia-800"
+        >
+          <h3>
+            Title: <span> {{ detail.title }}</span>
+          </h3>
+          <h4>
+            Year Of Movie: <span> {{ detail.year }}</span>
+          </h4>
+          <p>
+            Plot: <span> {{ detail.plot }}</span>
+          </p>
+          <h4>
+            Actors: <span>{{ detail.actors }}</span>
+          </h4>
+          <h4>
+            Genre: <span>{{ detail.genre }}</span>
+          </h4>
+          <h4>
+            Awards: <span> {{ detail.awards }}</span>
+          </h4>
+        </li></base-card
+      >
     </div>
   </section>
 </template>
@@ -78,5 +92,8 @@ export default {
 <style>
 * {
   background-color: black;
+}
+li {
+  list-style-type: none;
 }
 </style>
