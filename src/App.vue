@@ -15,6 +15,11 @@ export default {
 
 <style>
 * {
-  background-color: black;
+  /* background-color: black; */
+  background-image: url('./img/background-img-main.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100%;
+  /* align-items: center; */
 }
 </style>
