@@ -16,9 +16,9 @@ export default {
 <style>
 * {
   /* background-color: black; */
-  background-image: url('./img/background-img-main.jpg');
+  /* background-image: url('./img/background-img-main.jpg'); */
+  background-color: black;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-size: 100%;
   /* align-items: center; */
 }

@@ -46,7 +46,8 @@ export default {
 </script>
 
 <template class="bg-inherit">
-  <nav class="flex items-center justify-between flex-wrap bg-teal-500 p-6">
+  <!-- start of nav brand  -->
+  <nav class="flex items-center justify-between flex-wrap p-6">
     <div class="flex items-center flex-shrink-0 mr-6 my-title">
       <svg
         class="fill-current h-8 w-8 mr-2"
@@ -62,6 +63,9 @@ export default {
       <span class="font-semibold tracking-tight">Movie Overview</span>
     </div>
   </nav>
+  <!-- end of nav brand with svg -->
+
+  <!-- start of input and search button  -->
   <section class="m-24 text-center bg-inherit">
     <div class="mb-20">
       <div class="bar">
@@ -75,55 +79,36 @@ export default {
         />
       </div>
 
-      <!-- start of the google input im tryna use  -->
-      <!-- <div class="bar">
-        <input type="text" title="Search" />
-      </div> -->
       <button class="w-24 ml-2 my-btn" @click="loadMovieDetail">Submit</button>
     </div>
   </section>
-  <section class="text-center bg-fixed font-mukta">
+  <section class="text-center font-mukta">
     <div v-if="isLoading" class="max-w-sm rounded overflow-hidden shadow-lg">
       <span class="text-slate-50 text-base">{{ inputError }}</span>
     </div>
     <!-- start of the card for display content -->
     <div v-else>
       <div
-        class="max-w-sm w-full lg:max-w-full lg:flex"
+        class="max-w-sm rounded overflow-hidden shadow-lg"
         v-for="detail in movieInfo"
         :key="detail.id"
       >
-        <img
-          :src="detail.img"
-          :alt="detail.title"
-          class="h-60 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden"
-        />
-        <div
-          class="bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal text-align-left"
-        >
-          <span class="text-slate-50 text-base">Title: {{ detail.title }}</span
-          ><br /><span class="text-slate-50 text-base"
-            >Year Of Movie: {{ detail.year }}</span
+        <img class="w-full" :src="detail.img" :alt="detail.title" />
+        <div class="px-6 py-4 my-detail-p">
+          <div class="font-bold text-xl mb-2">{{ detail.title }}</div>
+          <p class="text-base">Year:{{ detail.year }}</p>
+          <p class="text-base">Plot: {{ detail.plot }}</p>
+          <p class="text-base">Awards: {{ detail.awards }}</p>
+          <p class="text-base">
+            Year Of Release:
+            {{ detail.yearOfReleased }}
+          </p>
+        </div>
+        <div class="px-6 pt-4 pb-2">
+          <span
+            class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
+            >{{ detail.genre }}</span
           >
-          <br />
-
-          <span class="text-slate-50 text-base"> Plot: {{ detail.plot }}</span>
-          <br />
-
-          <span class="text-slate-50 text-base">
-            Actors: {{ detail.actors }}</span
-          >
-          <br />
-
-          <span class="text-slate-50 text-base">
-            Awards: {{ detail.awards }}</span
-          >
-          <div class="px-6 pt-4 pb-2">
-            <span
-              class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-slate-50 mr-2 mb-2"
-              >{{ detail.genre }}</span
-            >
-          </div>
         </div>
       </div>
     </div>
@@ -143,6 +128,25 @@ h1.my-heading {
   /* font-family: 'Rakkas', cursive; */
   margin-top: 200px;
   margin-bottom: 20px;
+}
+div.my-detail-p {
+  font-family: 'Mukta', sans-serif;
+  color: white;
+}
+.my-btn:hover {
+  margin-top: 20px;
+  color: white;
+  background-color: #831010;
+  font-family: 'Mukta', sans-serif;
+}
+.my-btn {
+  margin-top: 20px;
+  background: none;
+  color: white;
+  border: 2px solid #831010;
+}
+.font-mukta {
+  font-family: 'Mukta', sans-serif;
 }
 
 .bar {
@@ -165,20 +169,5 @@ h1.my-heading {
   font-size: 16px;
   outline: none;
   color: white;
-}
-.my-btn:hover {
-  margin-top: 20px;
-  color: white;
-  background-color: #831010;
-  font-family: 'Mukta', sans-serif;
-}
-.my-btn {
-  margin-top: 20px;
-  background: none;
-  color: white;
-  border: 2px solid #831010;
-}
-.font-mukta {
-  font-family: 'Mukta', sans-serif;
 }
 </style>
