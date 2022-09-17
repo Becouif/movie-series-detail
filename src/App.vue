@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section id="body">
     <MovieDetail></MovieDetail>
   </section>
 </template>
@@ -13,13 +13,4 @@ export default {
 };
 </script>
 
-<style>
-* {
-  /* background-color: black; */
-  /* background-image: url('./img/background-img-main.jpg'); */
-  background-color: black;
-  background-repeat: no-repeat;
-  background-size: 100%;
-  /* align-items: center; */
-}
-</style>
+<style></style>

@@ -45,7 +45,7 @@ export default {
 };
 </script>
 
-<template class="bg-inherit">
+<template>
   <!-- start of nav brand  -->
   <nav class="flex items-center justify-between flex-wrap p-6">
     <div class="flex items-center flex-shrink-0 mr-6 my-title">
@@ -66,7 +66,7 @@ export default {
   <!-- end of nav brand with svg -->
 
   <!-- start of input and search button  -->
-  <section class="m-24 text-center bg-inherit">
+  <section class="m-24 text-center">
     <div class="mb-20">
       <div class="bar">
         <input
@@ -83,18 +83,21 @@ export default {
     </div>
   </section>
   <section class="text-center font-mukta">
-    <div v-if="isLoading" class="max-w-sm rounded overflow-hidden shadow-lg">
-      <span class="text-slate-50 text-base">{{ inputError }}</span>
+    <div
+      v-if="isLoading"
+      class="max-w-sm rounded overflow-hidden shadow-lg movie-card"
+    >
+      <span class="text-base">{{ inputError }}</span>
     </div>
     <!-- start of the card for display content -->
     <div v-else>
       <div
-        class="max-w-sm rounded overflow-hidden shadow-lg"
+        class="max-w-sm rounded overflow-hidden shadow-lg movie-card"
         v-for="detail in movieInfo"
         :key="detail.id"
       >
         <img class="w-full" :src="detail.img" :alt="detail.title" />
-        <div class="px-6 py-4 my-detail-p">
+        <div class="px-6 py-4 movie-card-p">
           <div class="font-bold text-xl mb-2">{{ detail.title }}</div>
           <p class="text-base">Year:{{ detail.year }}</p>
           <p class="text-base">Plot: {{ detail.plot }}</p>
@@ -116,11 +119,14 @@ export default {
 </template>
 
 <style scoped>
+nav {
+  background-color: #0d0d0d;
+}
 li {
   list-style-type: none;
 }
 div.my-title {
-  color: #831010;
+  color: #e50914;
   font-family: 'Ultra', serif;
   font-size: 30px;
 }
@@ -129,21 +135,27 @@ h1.my-heading {
   margin-top: 200px;
   margin-bottom: 20px;
 }
-div.my-detail-p {
+div.movie-card-p {
   font-family: 'Mukta', sans-serif;
-  color: white;
+  color: #0d0d0d;
+}
+
+div.movie-card {
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 3;
 }
 .my-btn:hover {
   margin-top: 20px;
   color: white;
-  background-color: #831010;
+  background-color: #0d0d0d;
   font-family: 'Mukta', sans-serif;
 }
 .my-btn {
   margin-top: 20px;
   background: none;
-  color: white;
-  border: 2px solid #831010;
+  color: #0d0d0d;
+  border: 2px thin;
 }
 .font-mukta {
   font-family: 'Mukta', sans-serif;
@@ -151,23 +163,26 @@ div.my-detail-p {
 
 .bar {
   margin: 0 auto;
-  width: 575px;
+  width: 40%;
   border-radius: 30px;
-  border: 1px solid #831010;
+  border: 1px solid #0d0d0d;
 }
 .bar:hover {
-  box-shadow: 1px 1px 8px 1px #831010;
+  box-shadow: 1px 1px 8px 1px #0d0d0d;
 }
 .bar:focus-within {
-  box-shadow: 1px 1px 8px 1px #831010;
+  box-shadow: 1px 1px 8px 1px #0d0d0d;
   outline: none;
 }
 .searchbar {
+  width: 100%;
   height: 45px;
   border: none;
-  width: 500px;
+  width: 40%;
   font-size: 16px;
   outline: none;
-  color: white;
+  color: #831010;
 }
+
+/* start of media query for  input responsiveness  */
 </style>
