@@ -34,8 +34,11 @@ export default {
               genre: data.Genre,
               img: data.Poster,
               yearOfReleased: data.Released,
+              type: data.Type,
+              language: data.Language,
+              country: data.Country,
+              awards: data.Awards,
             });
-            console.log(data.Title);
           });
       }
     },
@@ -96,13 +99,33 @@ export default {
       >
         <img class="w-full" :src="detail.img" :alt="detail.title" />
         <div class="px-6 py-4 movie-card-p">
-          <div class="font-bold text-xl mb-2">{{ detail.title }}</div>
-          <p class="text-base">Year:{{ detail.year }}</p>
-          <p class="text-base">Plot: {{ detail.plot }}</p>
-          <p class="text-base">Awards: {{ detail.awards }}</p>
-          <p class="text-base">Actors: {{ detail.actors }}</p>
+          <div class="text-base">
+            <span class="font-bold">Title:</span> {{ detail.title }}
+          </div>
           <p class="text-base">
-            Year Of Release:
+            <span class="font-bold">Year:</span> {{ detail.year }}
+          </p>
+          <p class="text-base">
+            <span class="font-bold">Plot:</span> {{ detail.plot }}
+          </p>
+          <p class="text-base">
+            <span class="font-bold">Awards:</span> {{ detail.awards }}
+          </p>
+          <p class="text-base">
+            <span class="font-bold">Actors:</span> {{ detail.actors }}
+          </p>
+          <p class="text-base">
+            <span class="font-bold">Type:</span> {{ detail.type }}
+          </p>
+          <p class="text-base">
+            <span class="font-bold">Language:</span> {{ detail.language }}
+          </p>
+          <p class="text-base">
+            <span class="font-bold">Country:</span> {{ detail.country }}
+          </p>
+          <p class="text-base">
+            <span class="font-bold">Year Of Release: </span>
+
             {{ detail.yearOfReleased }}
           </p>
         </div>
