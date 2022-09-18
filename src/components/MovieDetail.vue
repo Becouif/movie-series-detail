@@ -1,5 +1,4 @@
 <script>
-import axios from 'axios';
 export default {
   data() {
     return {
@@ -16,28 +15,27 @@ export default {
         this.inputError = 'Please enter a Movie or Series name';
       } else {
         this.movieInfo = [];
-        axios
-          .get(
-            `http://www.omdbapi.com/?t=${this.enteredMovieName}&apikey=ec7b2d29`
-          )
+        this.isLoading = false;
+        fetch(
+          `http://www.omdbapi.com/?t=${this.enteredMovieName}&apikey=ec7b2d29`
+        )
           .then((response) => {
-            this.isLoading = false;
-            const res = response.data;
-
-            this.movieInfo.push({
-              id: res.Title,
-              title: res.Title,
-              year: res.Year,
-              plot: res.Plot,
-              actors: res.Actors,
-              genre: res.Genre,
-              awards: res.Awards,
-              img: res.Poster,
-              yearOfReleased: res.Released,
-            });
+            if (response.ok) {
+              return response.json();
+            }
           })
-          .catch(function () {
-            throw new Error('not working');
+          .then((data) => {
+            this.movieInfo.push({
+              id: data.Title,
+              title: data.Title,
+              year: data.Year,
+              plot: data.Plot,
+              actors: data.Actors,
+              genre: data.Genre,
+              img: data.Poster,
+              yearOfReleased: data.Released,
+            });
+            console.log(data.Title);
           });
       }
     },
@@ -102,6 +100,7 @@ export default {
           <p class="text-base">Year:{{ detail.year }}</p>
           <p class="text-base">Plot: {{ detail.plot }}</p>
           <p class="text-base">Awards: {{ detail.awards }}</p>
+          <p class="text-base">Actors: {{ detail.actors }}</p>
           <p class="text-base">
             Year Of Release:
             {{ detail.yearOfReleased }}
