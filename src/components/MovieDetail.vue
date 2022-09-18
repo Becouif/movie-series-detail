@@ -17,7 +17,7 @@ export default {
         this.movieInfo = [];
         this.isLoading = false;
         fetch(
-          `http://www.omdbapi.com/?t=${this.enteredMovieName}&apikey=ec7b2d29`
+          `https://www.omdbapi.com/?t=${this.enteredMovieName}&apikey=ec7b2d29`
         )
           .then((response) => {
             if (response.ok) {
