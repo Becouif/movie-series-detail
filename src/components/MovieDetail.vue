@@ -77,6 +77,7 @@ export default {
           name=""
           placeholder="search movie name"
           v-model="enteredMovieName"
+          autofocus
         />
       </div>
 
