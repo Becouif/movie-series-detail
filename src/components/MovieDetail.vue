@@ -48,7 +48,7 @@ export default {
 
 <template>
   <!-- start of nav brand  -->
-  <nav class="flex items-center justify-between flex-wrap p-6">
+  <nav class="flex items-center justify-between flex-wrap p-6 bg-grey-50">
     <div class="flex items-center flex-shrink-0 mr-6 my-title">
       <svg
         class="fill-current h-8 w-8 mr-2"
@@ -61,7 +61,7 @@ export default {
           d="M13.5 22.1c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05zM0 38.3c1.8-7.2 6.3-10.8 13.5-10.8 10.8 0 12.15 8.1 17.55 9.45 3.6.9 6.75-.45 9.45-4.05-1.8 7.2-6.3 10.8-13.5 10.8-10.8 0-12.15-8.1-17.55-9.45-3.6-.9-6.75.45-9.45 4.05z"
         />
       </svg>
-      <span class="font-semibold tracking-tight">Movie Overview</span>
+      <span class="font-semibold tracking-tight">Movie Abstract</span>
     </div>
   </nav>
   <!-- end of nav brand with svg -->
@@ -69,19 +69,24 @@ export default {
   <!-- start of input and search button  -->
   <section class="m-24 text-center">
     <div class="mb-20">
-      <div class="bar">
+      <div>
         <input
           @keyup.enter="loadMovieDetail"
-          class="searchbar font-mukta"
           type="text"
-          name=""
+          id="first_name"
+          class="border text-sm rounded-lg block w-1/2 p-2.5 text-center"
           placeholder="search movie name"
           v-model="enteredMovieName"
           autofocus
         />
       </div>
 
-      <button class="w-24 ml-2 my-btn" @click="loadMovieDetail">Submit</button>
+      <button
+        class="bg-transparent my-btn font-semibold hover:text-white py-2 px-4 border border-grey-700 hover:border-transparent rounded"
+        @click="loadMovieDetail"
+      >
+        Submit
+      </button>
     </div>
   </section>
   <section class="text-center font-mukta">
@@ -143,7 +148,12 @@ export default {
 
 <style scoped>
 nav {
-  background-color: #0d0d0d;
+  background-color: #111827;
+}
+input {
+  background-color: white;
+  color: #111827;
+  margin: auto;
 }
 li {
   list-style-type: none;
@@ -160,7 +170,7 @@ h1.my-heading {
 }
 div.movie-card-p {
   font-family: 'Mukta', sans-serif;
-  color: #0d0d0d;
+  color: #111827;
 }
 
 div.movie-card {
@@ -168,43 +178,20 @@ div.movie-card {
   margin-right: auto;
   line-height: 3;
 }
-.my-btn:hover {
-  margin-top: 20px;
-  color: white;
-  background-color: #0d0d0d;
-  font-family: 'Mukta', sans-serif;
-}
 .my-btn {
   margin-top: 20px;
+  color: white;
+  background-color: #111827;
+  font-family: 'Mukta', sans-serif;
+}
+.my-btn:hover {
+  margin-top: 20px;
   background: none;
-  color: #0d0d0d;
+  color: #111827;
   border: 2px thin;
 }
 .font-mukta {
   font-family: 'Mukta', sans-serif;
-}
-
-.bar {
-  margin: 0 auto;
-  width: 40%;
-  border-radius: 30px;
-  border: 1px solid #0d0d0d;
-}
-.bar:hover {
-  box-shadow: 1px 1px 8px 1px #0d0d0d;
-}
-.bar:focus-within {
-  box-shadow: 1px 1px 8px 1px #0d0d0d;
-  outline: none;
-}
-.searchbar {
-  width: 100%;
-  height: 45px;
-  border: none;
-  width: 40%;
-  font-size: 16px;
-  outline: none;
-  color: #831010;
 }
 
 /* start of media query for  input responsiveness  */
