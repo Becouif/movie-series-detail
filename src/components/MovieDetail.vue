@@ -173,7 +173,7 @@ div.movie-card-p {
   color: #111827;
 }
 
-div.movie-card:focus-within {
+div.movie-card {
   margin-left: auto;
   margin-right: auto;
   line-height: 3;
