@@ -67,7 +67,7 @@ export default {
   <!-- end of nav brand with svg -->
 
   <!-- start of input and search button  -->
-  <section class="m-8 text-center">
+  <section class="m-24 text-center">
     <div class="">
       <div>
         <input
@@ -177,7 +177,7 @@ div.movie-card {
   margin-left: auto;
   margin-right: auto;
   line-height: 3;
-  /* margin-top: -3.5rem; */
+  margin-top: -4rem;
 }
 .my-btn {
   margin-top: 20px;
