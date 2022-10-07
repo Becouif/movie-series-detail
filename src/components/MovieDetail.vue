@@ -67,8 +67,8 @@ export default {
   <!-- end of nav brand with svg -->
 
   <!-- start of input and search button  -->
-  <section class="m-24 text-center">
-    <div class="mb-4">
+  <section class="m-8 text-center">
+    <div class="">
       <div>
         <input
           @keyup.enter="loadMovieDetail"
@@ -177,7 +177,7 @@ div.movie-card {
   margin-left: auto;
   margin-right: auto;
   line-height: 3;
-  margin-top: -3.5rem;
+  /* margin-top: -3.5rem; */
 }
 .my-btn {
   margin-top: 20px;
