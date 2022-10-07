@@ -68,7 +68,7 @@ export default {
 
   <!-- start of input and search button  -->
   <section class="m-24 text-center">
-    <div class="mb-20">
+    <div class="mb-4">
       <div>
         <input
           @keyup.enter="loadMovieDetail"
@@ -177,6 +177,7 @@ div.movie-card {
   margin-left: auto;
   margin-right: auto;
   line-height: 3;
+  margin-top: -3.5rem;
 }
 .my-btn {
   margin-top: 20px;
